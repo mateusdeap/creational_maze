@@ -16,25 +16,33 @@ module CreationalMaze
     south: 4
   }
 
+  NUMBER_OF_ROOMS = 10
+
   def self.new_maze(maze_factory:)
     maze = maze_factory.make_maze
-    r1 = maze_factory.make_room room_number: 1
-    r2 = maze_factory.make_room room_number: 2
-    the_door = maze_factory.make_door room_1: r1, room_2: r2
 
-    maze.add_room room: r1
-    maze.add_room room: r2
+    rooms = []
+    for i in 1..NUMBER_OF_ROOMS do
+      rooms.push maze_factory.make_room room_number: i
+    end
 
-    r1.set_side direction: DIRECTIONS[:north], map_site: maze_factory.make_wall 
-    r1.set_side direction: DIRECTIONS[:east], map_site: the_door
-    r1.set_side direction: DIRECTIONS[:south], map_site: maze_factory.make_wall
-    r1.set_side direction: DIRECTIONS[:west], map_site: maze_factory.make_wall
+    rooms.each do |room|
+      maze.add_room room: room
+    end
 
-
-    r2.set_side direction: DIRECTIONS[:north], map_site: maze_factory.make_wall
-    r2.set_side direction: DIRECTIONS[:east], map_site: maze_factory.make_wall
-    r2.set_side direction: DIRECTIONS[:south], map_site: maze_factory.make_wall
-    r2.set_side direction: DIRECTIONS[:west], map_site: the_door
+    maze.rooms.each do |room|
+      DIRECTIONS.each do |direction|
+        # randomely choose if make wall or add door
+        wall = rand >= 0.5
+        map_site = if wall
+          maze_factory.make_wall
+        else
+          maze_factory.make_door room_1: room, room_2: rooms.sample
+        end
+        
+        room.set_side direction: direction, map_site: map_site
+      end
+    end
 
     maze
   end
