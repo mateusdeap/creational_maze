@@ -9,11 +9,11 @@ module CreationalMaze
     def enter
     end
 
-    def add_room(room:)
       @rooms.push room
+    def add_room(room)
     end
 
-    def room_no(room_number:)
+    def room_no(room_number)
     end
   end
 end
