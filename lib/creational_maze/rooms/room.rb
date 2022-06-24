@@ -12,10 +12,12 @@ module Rooms
 
     def enter; end
 
-      sides[direction] = map_site
+    def set_side(direction, map_site)
+      raise ArgumentError unless all_directions.include?(direction)
+
+      @sides[direction] = map_site
     end
 
-      sides[direction]
     def get_direction(map_site)
     end
   end
