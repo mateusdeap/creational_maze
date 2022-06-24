@@ -1,5 +1,6 @@
 module Rooms
   class Room < CreationalMaze::MapSite
+    include Directions
     attr_accessor :sides
 
     def initialize(room_number:)
