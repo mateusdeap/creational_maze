@@ -1,7 +1,5 @@
-module CreationalMaze
-  module Walls
-    class Wall < MapSite
-      def enter; end
-    end
+module Walls
+  class Wall < CreationalMaze::MapSite
+    def enter; end
   end
 end

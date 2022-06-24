@@ -1,4 +1,4 @@
-module CreationalMaze
+module Factories
   class EnchantedMazeFactory
     def make_maze
       Maze.new

@@ -3,10 +3,12 @@
 require "creational_maze/version"
 require "creational_maze/maze"
 require "creational_maze/rooms"
-require "creational_maze/doors/door"
+require "creational_maze/directions"
+require "creational_maze/doors"
 require "creational_maze/walls"
-require "creational_maze/factories/bombed_maze_factory"
-require "creational_maze/factories/enchanted_maze_factory"
+require "creational_maze/error"
+require "creational_maze/builders"
+require "creational_maze/factories"
 
 module CreationalMaze
   NUMBER_OF_ROOMS = 25

@@ -1,5 +1,5 @@
-module CreationalMaze
-  class Door < MapSite
+module Doors
+  class Door < CreationalMaze::MapSite
     attr_accessor :is_open
 
     def initialize(room_1:, room_2:)
