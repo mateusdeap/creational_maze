@@ -5,7 +5,7 @@ module Directions
   WEST = :west
 
   def all_directions
-    [:north, :south, :east, :west]
+    %i[north south east west]
   end
 
   def opposite_direction(direction)
@@ -19,7 +19,7 @@ module Directions
     when :north
       :south
     else
-      raise ArgumentError.new("The only valid directions are :north, :south, :east or :west")
+      raise ArgumentError, "The only valid directions are :north, :south, :east or :west"
     end
   end
 end
