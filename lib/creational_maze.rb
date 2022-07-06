@@ -11,13 +11,25 @@ require "creational_maze/builders"
 require "creational_maze/factories"
 
 module CreationalMaze
-  NUMBER_OF_ROOMS = 25
+  NUMBER_OF_ROOMS = 6
 
   def new_maze(maze_builder)
     maze_builder.build_maze
 
-    for room_number in 1..NUMBER_OF_ROOMS do
+    (1..NUMBER_OF_ROOMS).each do |room_number|
       maze_builder.build_room room_number
+    end
+
+    rooms = maze_builder.get_maze.rooms
+
+    rooms.each do |room|
+      room.sides.each do |_direction, _map_site|
+        door_odds = rand
+        if door_odds >= 0.5
+          room2 = rooms.sample
+          maze_builder.build_door(room.room_number, room2.room_number)
+        end
+      end
     end
 
     maze_builder.get_maze
