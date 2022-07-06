@@ -7,13 +7,23 @@ GEM
   remote: https://rubygems.org/
   specs:
     ast (2.4.2)
+    debug (1.5.0)
+      irb (>= 1.3.6)
+      reline (>= 0.2.7)
     diff-lcs (1.4.4)
+    io-console (0.5.11)
+    irb (1.4.1)
+      reline (>= 0.3.0)
+    language_server-protocol (3.16.0.3)
     parallel (1.20.1)
     parser (3.0.2.0)
       ast (~> 2.4.1)
+    prettier_print (0.1.0)
     rainbow (3.0.0)
     rake (13.0.6)
     regexp_parser (2.1.1)
+    reline (0.3.1)
+      io-console (~> 0.5)
     rexml (3.2.5)
     rspec (3.10.0)
       rspec-core (~> 3.10.0)
@@ -39,17 +49,28 @@ GEM
       unicode-display_width (>= 1.4.0, < 3.0)
     rubocop-ast (1.10.0)
       parser (>= 3.0.1.1)
+    ruby-lsp (0.1.0)
+      language_server-protocol
+      rubocop (>= 1.0)
+      sorbet-runtime
+      syntax_tree (>= 2.4)
     ruby-progressbar (1.11.0)
+    sorbet-runtime (0.5.10109)
+    syntax_tree (2.8.0)
+      prettier_print
     unicode-display_width (2.0.0)
 
 PLATFORMS
+  ruby
   x86_64-darwin-20
 
 DEPENDENCIES
   creational_maze!
+  debug
   rake (~> 13.0)
   rspec (~> 3.0)
   rubocop (~> 1.7)
+  ruby-lsp
 
 BUNDLED WITH
-   2.2.26
+   2.2.30
